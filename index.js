@@ -47,9 +47,6 @@ module.exports.save = function(image) {
             CacheControl: 'maxage=' + (30 * 24 * 60 * 60) // 30 days
         });
     })
-    .then(function(result) {
-        return unlink(image.path);
-    })
     .then(function() {
         return when.resolve(awsPath + targetFilename);
     })
